@@ -19,3 +19,8 @@ func main() {
 	fmt.Printf("Feel free to type in commands\n")
 	repl.Start(os.Stdin, os.Stdout)
 }
+
+func evalErrors(input string) (progErrors []string, err error) {
+
+	return []string{}, nil
+}
