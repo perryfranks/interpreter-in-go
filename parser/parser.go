@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/perryfranks/monkey-interpreter/ast"
-	"github.com/perryfranks/monkey-interpreter/lexer"
-	"github.com/perryfranks/monkey-interpreter/token"
+	"github.com/perryfranks/monkey-lang/ast"
+	"github.com/perryfranks/monkey-lang/lexer"
+	"github.com/perryfranks/monkey-lang/token"
 )
 
 // Order matters hear for operator precidence

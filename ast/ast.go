@@ -4,7 +4,7 @@ import (
 	"bytes"
 	"strings"
 
-	"github.com/perryfranks/monkey-interpreter/token"
+	"github.com/perryfranks/monkey-lang/token"
 )
 
 type Node interface {

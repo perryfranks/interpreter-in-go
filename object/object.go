@@ -6,7 +6,7 @@ import (
 	"hash/fnv"
 	"strings"
 
-	"github.com/perryfranks/monkey-interpreter/ast"
+	"github.com/perryfranks/monkey-lang/ast"
 )
 
 type ObjectType string

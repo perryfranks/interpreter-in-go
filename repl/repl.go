@@ -5,10 +5,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/perryfranks/monkey-interpreter/evaluator"
-	"github.com/perryfranks/monkey-interpreter/lexer"
-	"github.com/perryfranks/monkey-interpreter/object"
-	"github.com/perryfranks/monkey-interpreter/parser"
+	"github.com/perryfranks/monkey-lang/evaluator"
+	"github.com/perryfranks/monkey-lang/lexer"
+	"github.com/perryfranks/monkey-lang/object"
+	"github.com/perryfranks/monkey-lang/parser"
 )
 
 const PROMPT = ">> "
