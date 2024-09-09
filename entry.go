@@ -1,4 +1,4 @@
-package main
+package monkeylang
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"github.com/perryfranks/monkey-lang/repl"
 )
 
-func main() {
+func Entry() {
 	user, err := user.Current()
 	if err != nil {
 		panic(err)
@@ -20,7 +20,7 @@ func main() {
 	repl.Start(os.Stdin, os.Stdout)
 }
 
-func evalErrors(input string) (progErrors []string, err error) {
+func EvalErrors(input string) (progErrors []string, err error) {
 
 	return []string{}, nil
 }
