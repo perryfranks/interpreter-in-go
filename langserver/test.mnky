@@ -1,3 +1,4 @@
 let x = 3;
 let add2 = fn(y) {y + 2};
 puts(add2(x));
+

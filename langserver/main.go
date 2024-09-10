@@ -13,7 +13,7 @@ import (
 
 func main() {
 
-	logger := getLogger("/home/perry/monkey-ls/log.txt")
+	logger := getLogger("/home/perry/interpreter-in-go/langserver/log.txt")
 	logger.Println("logger started")
 
 	scanner := bufio.NewScanner(os.Stdin)
@@ -92,6 +92,10 @@ func handleMessage(logger *log.Logger, writer io.Writer, state analysis.State, m
 			},
 		}
 		writeResponse(writer, response)
+	case "textDocument/didSave":
+		logger.Printf("%s\n", contents)
+		// we don't get contents but we have them on file
+		// on save eval the program and then we will log the number of the errors for now
 
 	default:
 		logger.Println("unhandled method recieved. method=", method)
