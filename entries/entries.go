@@ -1,4 +1,4 @@
-package monkeylang
+package entries
 
 import (
 	"fmt"
@@ -8,7 +8,7 @@ import (
 	"github.com/perryfranks/monkey-lang/repl"
 )
 
-func Entry() {
+func ReplRun() {
 	user, err := user.Current()
 	if err != nil {
 		panic(err)
