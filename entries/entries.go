@@ -5,6 +5,8 @@ import (
 	"os"
 	"os/user"
 
+	"github.com/perryfranks/monkey-lang/lexer"
+	"github.com/perryfranks/monkey-lang/parser"
 	"github.com/perryfranks/monkey-lang/repl"
 )
 
@@ -22,5 +24,9 @@ func ReplRun() {
 
 func EvalErrors(input string) (progErrors []string, err error) {
 
-	return []string{}, nil
+	l := lexer.New(input)
+	p := parser.New(l)
+	_ = p.ParseProgram() // you must parse the program to generate errors
+
+	return p.Errors(), nil
 }

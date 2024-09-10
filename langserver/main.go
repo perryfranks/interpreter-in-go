@@ -3,12 +3,14 @@ package main
 import (
 	"bufio"
 	"encoding/json"
-	"github.com/perryfranks/monkey-lang/langserver/analysis"
-	"github.com/perryfranks/monkey-lang/langserver/lsp"
-	"github.com/perryfranks/monkey-lang/langserver/rpc"
 	"io"
 	"log"
 	"os"
+
+	"github.com/perryfranks/monkey-lang/langserver/analysis"
+	"github.com/perryfranks/monkey-lang/langserver/handlers"
+	"github.com/perryfranks/monkey-lang/langserver/lsp"
+	"github.com/perryfranks/monkey-lang/langserver/rpc"
 )
 
 func main() {
@@ -94,8 +96,12 @@ func handleMessage(logger *log.Logger, writer io.Writer, state analysis.State, m
 		writeResponse(writer, response)
 	case "textDocument/didSave":
 		logger.Printf("%s\n", contents)
-		// we don't get contents but we have them on file
-		// on save eval the program and then we will log the number of the errors for now
+		var request lsp.DidChangeTextDocumentNotification
+		if err := json.Unmarshal(contents, &request); err != nil {
+			logger.Println("Failure to unmarshal textDocument/didSave.", err)
+			return
+		}
+		handlers.HandleDidSave(logger, writer, state, request)
 
 	default:
 		logger.Println("unhandled method recieved. method=", method)
